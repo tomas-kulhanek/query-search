@@ -3,7 +3,6 @@
 namespace TomasKulhanek\QuerySearch\Enum;
 
 use Consistence\Enum\Enum;
-use TomasKulhanek\QuerySearch\Exception\UnknownOperatorException;
 
 class OperationEnum extends Enum
 {
