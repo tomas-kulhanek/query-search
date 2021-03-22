@@ -17,7 +17,9 @@ class RequestQueryParser implements RequestQueryParserInterface
 
 	protected RequestParams $requestParams;
 
-	public function __construct()
+	public function __construct(
+		private string $filterQueryName = 'q'
+	)
 	{
 		$this->requestParams = new RequestParams();
 	}
@@ -33,7 +35,10 @@ class RequestQueryParser implements RequestQueryParserInterface
 
 	protected function parseFilters(Request $request): void
 	{
-		$filters = $request->query->get('q', '');
+		if(!$request->query->has($this->filterQueryName)){
+			return;
+		}
+		$filters = $request->query->get($this->filterQueryName, '');
 		if (empty($filters)) {
 			return;
 		}
