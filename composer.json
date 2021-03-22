@@ -1,0 +1,39 @@
+{
+	"name": "tomas-kulhanek/query-search",
+	"homepage": "https://gitlab.com/tomas-kulhanek/query-search",
+	"license": "MIT",
+	"description": "",
+	"keywords": [
+	],
+	"authors": [
+		{
+			"name": "Tomáš Kulhánek",
+			"email": "jsem@tomaskulhanek.cz"
+		}
+	],
+	"require": {
+		"php": ">=8.0",
+		"consistence/consistence": "dev-php8",
+		"symfony/http-foundation": "^5.2"
+	},
+	"require-dev": {
+		"phpstan/extension-installer": "^1.0",
+		"phpstan/phpstan": "^0.12.82",
+		"rector/rector": "^0.9"
+	},
+	"suggest": {
+	},
+	"autoload": {
+		"psr-4": {
+			"TomasKulhanek\\QuerySearch\\": "src/"
+		}
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "git@github.com:xificurk/consistence.git"
+		}
+	],
+	"minimum-stability": "stable",
+	"prefer-stable": true
+}

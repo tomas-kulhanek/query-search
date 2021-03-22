@@ -1,0 +1,33 @@
+image: helppc/php-fpm:v2.0.1
+
+stages:
+  - precache
+  - check
+
+Prepare Environment:
+  stage: precache
+  script:
+    - curl -s https://getcomposer.org/installer | php
+    - composer install --no-progress --no-interaction
+  artifacts:
+    paths:
+      - vendor
+    expire_in: 4 hours
+
+##############
+# CHECK
+##############
+Static Analysis:
+  dependencies:
+    - Prepare Environment
+  stage: check
+  script:
+    - vendor/bin/phpstan analyse --no-progress -c phpstan.neon || true
+
+Rector:
+  allow_failure: true
+  dependencies:
+    - Prepare Environment
+  stage: check
+  script:
+    - vendor/bin/rector process src --dry-run
