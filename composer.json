@@ -13,7 +13,7 @@
 	],
 	"require": {
 		"php": ">=8.0",
-		"consistence/consistence": "dev-php8",
+		"consistence-community/consistence": "^2.0",
 		"symfony/http-foundation": "^5.2"
 	},
 	"require-dev": {
@@ -28,12 +28,6 @@
 			"TomasKulhanek\\QuerySearch\\": "src/"
 		}
 	},
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "git@github.com:xificurk/consistence.git"
-		}
-	],
 	"minimum-stability": "stable",
 	"prefer-stable": true
 }
