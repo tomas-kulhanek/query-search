@@ -14,7 +14,7 @@
 	"require": {
 		"php": ">=8.0",
 		"consistence-community/consistence": "^2.0",
-		"symfony/http-foundation": "^5.2"
+		"symfony/http-foundation": "6.*"
 	},
 	"require-dev": {
 		"phpstan/extension-installer": "^1.0",
