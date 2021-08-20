@@ -3,8 +3,8 @@
 namespace TomasKulhanek\QuerySearch;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 use TomasKulhanek\QuerySearch\Enum\OperationEnum;
+use TomasKulhanek\QuerySearch\Exception\UnprocessableEntityHttpException;
 use TomasKulhanek\QuerySearch\Params\Filter;
 use TomasKulhanek\QuerySearch\Params\Pagination;
 use TomasKulhanek\QuerySearch\Params\RequestParams;
@@ -38,6 +38,7 @@ class RequestQueryParser implements RequestQueryParserInterface
 		if(!$request->query->has($this->filterQueryName)){
 			return;
 		}
+		/** @var string $filters */
 		$filters = $request->query->get($this->filterQueryName, '');
 		if (empty($filters)) {
 			return;
@@ -60,6 +61,7 @@ class RequestQueryParser implements RequestQueryParserInterface
 
 	protected function parseSort(Request $request): void
 	{
+	    /** @var string $sorts */
 		$sorts = $request->query->get('sort', '');
 		if (empty($sorts)) {
 			return;
@@ -76,12 +78,9 @@ class RequestQueryParser implements RequestQueryParserInterface
 
 	protected function parsePagination(Request $request): void
 	{
-		if (!$request->query->has('limit')) {
-			return;
-		}
 		$this->requestParams->addPagination(new Pagination(
 			(int) $request->query->get('limit', '1'),
-			(int) $request->query->get('offset', '1')
+			(int) $request->query->get('offset', '0')
 		));
 	}
 
