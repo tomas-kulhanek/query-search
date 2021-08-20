@@ -38,6 +38,7 @@ class RequestQueryParser implements RequestQueryParserInterface
 		if(!$request->query->has($this->filterQueryName)){
 			return;
 		}
+		/** @var string $filters */
 		$filters = $request->query->get($this->filterQueryName, '');
 		if (empty($filters)) {
 			return;
@@ -60,6 +61,7 @@ class RequestQueryParser implements RequestQueryParserInterface
 
 	protected function parseSort(Request $request): void
 	{
+	    /** @var string $sorts */
 		$sorts = $request->query->get('sort', '');
 		if (empty($sorts)) {
 			return;
