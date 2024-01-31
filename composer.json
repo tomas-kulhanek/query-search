@@ -12,13 +12,11 @@
 		}
 	],
 	"require": {
-		"php": ">=8.0",
-		"consistence-community/consistence": "^2.0",
-		"symfony/http-foundation": "5.2,*|5.3.*|5.4.*|6.*"
+		"php": ">=8.1",
+		"symfony/http-foundation": "6.*|7.0"
 	},
 	"require-dev": {
-		"phpstan/extension-installer": "^1.0",
-		"phpstan/phpstan": "^0.12.82"
+		"phpstan/phpstan": "^1.10"
 	},
 	"suggest": {
 	},
