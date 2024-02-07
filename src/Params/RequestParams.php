@@ -50,7 +50,7 @@ class RequestParams implements RequestParamsInterface
 
     public function hasPagination(): bool
     {
-        return $this->pagination->getLimit() !== null && $this->pagination->getOffset() === null;
+        return $this->pagination->getLimit() !== null || $this->pagination->getOffset() !== null;
     }
 
     public function getPagination(): PaginationInterface
