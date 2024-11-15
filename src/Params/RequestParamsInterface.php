@@ -8,14 +8,14 @@ interface RequestParamsInterface
     public function hasFilter(): bool;
 
     /**
-     * @return FilterInterface[]
+     * @return list<FilterInterface>
      */
     public function getFilters(): array;
 
     public function hasSort(): bool;
 
     /**
-     * @return SortInterface[]
+     * @return list<SortInterface>
      */
     public function getSorts(): array;
 
