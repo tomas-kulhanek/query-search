@@ -15,12 +15,11 @@ use TomasKulhanek\QuerySearch\Params\Sort;
 
 class RequestQueryParser implements RequestQueryParserInterface
 {
-    const SEPARATOR = ',';
-
     protected RequestParams $requestParams;
 
     public function __construct(
-        private readonly string $filterQueryName = 'q'
+        private readonly string $filterQueryName = 'q',
+        private readonly string $separator = ','
     ) {
         $this->requestParams = new RequestParams();
     }
@@ -98,6 +97,6 @@ class RequestQueryParser implements RequestQueryParserInterface
 
         return "(\\w+(?:\\.\\w+)*?)" .
             "(" . $implodedAvailableValues . ")" .
-            "(\\*?)((?!" . $implodedAvailableValues . "|" . self::SEPARATOR . "|\\*).+?)(\\*?)(" . self::SEPARATOR . "|$)";
+            "(\\*?)((?!" . $implodedAvailableValues . "|" . $this->separator . "|\\*).+?)(\\*?)(" . $this->separator . "|$)";
     }
 }
