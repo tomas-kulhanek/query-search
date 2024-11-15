@@ -52,7 +52,7 @@ class RequestQueryParser implements RequestQueryParserInterface
             $this->requestParams->addFilter(
                 new Filter(
                     $field,
-                    OperationEnum::tryFrom($operator),
+                    OperationEnum::from($operator),
                     $value,
                     str_contains($prefix, '*'),
                     str_contains($suffix, '*'),
