@@ -5,10 +5,10 @@ namespace TomasKulhanek\QuerySearch\Params;
 
 class RequestParams implements RequestParamsInterface
 {
-    /** @var FilterInterface[] */
+    /** @var list<FilterInterface> */
     protected array $filters = [];
 
-    /** @var SortInterface[] */
+    /** @var list<SortInterface> */
     protected array $sorts = [];
 
     protected PaginationInterface $pagination;
@@ -20,7 +20,7 @@ class RequestParams implements RequestParamsInterface
 
     public function hasFilter(): bool
     {
-        return (bool) count($this->filters);
+        return $this->filters !== [];
     }
 
     public function getFilters(): array
@@ -35,7 +35,7 @@ class RequestParams implements RequestParamsInterface
 
     public function hasSort(): bool
     {
-        return (bool) count($this->sorts);
+        return $this->sorts !== [];
     }
 
     public function getSorts(): array

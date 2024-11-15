@@ -16,7 +16,7 @@
 		"symfony/http-foundation": "6.*|7.*"
 	},
 	"require-dev": {
-		"phpstan/phpstan": "^1.10"
+		"phpstan/phpstan": "^2.0"
 	},
 	"suggest": {
 	},
